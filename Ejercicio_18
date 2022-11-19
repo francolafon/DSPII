@@ -1,0 +1,69 @@
+anio = int(input("ingrese el año:"))
+if anio > 1996:
+    mes = int(input("ingrese el mes:"))
+
+    dia_siguiente = 0
+    mes_1 = 0
+    muestra_anio = anio
+    if mes > 0 and mes < 13:
+        dia = int(input("ingrese el dia:"))
+        muestra_mes = mes_letra[mes-1]
+        if mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
+            if dia > 0 and dia < 32:
+                dia_siguiente= dia + 1
+
+                if dia == 31 and mes != 12:
+                    dia_siguiente = 1
+                    muestra_mes = mes_letra[mes]
+                    print(dia_siguiente,muestra_mes,muestra_anio)
+
+                if mes == 12:
+                    dia_siguiente = 1
+                    mes_siguiente = 0
+                    muestra_mes = mes_letra[mes_siguiente]
+                    anio_siguiente = anio + 1
+                    muestra_anio = anio_siguiente
+                    print(dia_siguiente,muestra_mes,muestra_anio)
+                print(dia_siguiente,muestra_mes,muestra_anio)
+            else:
+                print("el dia es invalido")
+        if mes == 2:
+            if(anio % 400) == 0 and (anio % 4) == 0 and (anio % 100) != 0:
+                if dia > 0 and dia < 30:
+                    if dia == 29:
+                        dia_siguiente = 1
+                        print(dia_siguiente,muestra_mes,muestra_anio)
+                    else:
+                        dia_siguiente = dia + 1
+                        print(dia_siguiente,muestra_mes,muestra_anio)
+
+                else:
+                    print("el dia es invalido")
+            else:
+                if dia > 0 and dia < 29:
+                    if dia == 28:
+                        dia_siguiente = 1
+                        muestra_mes = mes_letra[mes]
+                        print(dia_siguiente,muestra_mes,muestra_anio)
+                    else:
+                        dia_siguiente = dia + 1
+                        print(dia_siguiente,muestra_mes,muestra_anio)
+                else:
+                    print("el dia es invalido")
+        if mes == 4 or mes == 6 or mes == 9 or mes == 11:
+            if dia > 0 and dia < 31:
+                if dia == 30:
+                    dia_siguiente = 1
+                    muestra_mes = mes_letra[mes]
+                    print(dia_siguiente,muestra_mes,muestra_anio)
+                else:
+                    dia_siguiente = dia + 1
+                    print(dia_siguiente,muestra_mes,muestra_anio)
+            else:
+                print("el dia es invalido")
+
+
+    else:
+        print("el mes esta fuera de rango")
+else:
+    print("el año esta fuera de rango")
